@@ -1,9 +1,12 @@
 package model;
 
+/** Kollar om kunden finns.
+ * 
+ */
 public class CustomerID {
     public boolean checkID (int id)
     {
-        return true;        // connect to discount?
+        return true;        
      //   return false;
     }
     

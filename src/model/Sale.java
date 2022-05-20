@@ -3,13 +3,20 @@ package model;
 import data.SaleDTO;
 import integration.InventorySystem;
 import java.util.*;
+import java.util.ArrayList;
 
+
+/** Sale tar hand om allt som handlar om att sälja.
+ */
 public class Sale {
     private boolean active;
     private List<Item> itemList = new ArrayList<Item>();
     private double totalPrice;
     private int saleID;
+    private List<Observer> obserververList = new ArrayList<Observer>();
 
+    /** Constructor Sale, 
+     */
     public Sale()
     {
         itemList.clear();
@@ -18,6 +25,12 @@ public class Sale {
         saleID = (50);
     }
 
+    /** Metoden addItem adderar produkten till sale.
+     *  kollar även om item redan är skannat.
+     * @param barcode
+     * @param is
+     * @return
+     */
     public boolean addItem (int barcode, InventorySystem is)
     {
         Item gotItem;
@@ -49,7 +62,13 @@ public class Sale {
         }
     return true;
     }
-
+/** Adderar produkterna till sale.
+ * 
+ * @param itemID
+ * @param quantity
+ * @param is
+ * @return itemID and is.
+ */
     public boolean addItems(int itemID, int quantity,InventorySystem is)
     {
         boolean right = false;
@@ -62,7 +81,7 @@ public class Sale {
         }
     return right;
     }
-
+    // endsale skapar och sparar dto, baserat på det som sale.
     public SaleDTO endSale(String pos)
     {
         double totalVAT = 0;
@@ -74,10 +93,16 @@ public class Sale {
         
         return theSale;
     }
+    /** information om att vi har en aktiv sale.
+     * 
+     * @return
+     */
     public boolean getProgress()
     {
         return active;
     }
+
+    // toString metod som gör att det blir en läsbar string.
     public String toString()
     {
         StringBuilder string = new StringBuilder();
@@ -86,5 +111,17 @@ public class Sale {
             string.append(i);
         }
         return string.toString();
+    }
+
+    public void updateObserver (double amount)
+    {
+        for (Observer o : observerList)
+        {
+            o.update(amount);
+        }
+    }
+    public void addOberserver (Observer observer)
+    {
+        observerList.add(observer);
     }
 }

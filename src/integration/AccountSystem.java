@@ -9,6 +9,7 @@ public class AccountSystem
 {
     List<SaleDTO> saleList;
 
+    // constructorn.
     public AccountSystem() 
     {
         saleList = new ArrayList<>();
@@ -17,6 +18,11 @@ public class AccountSystem
             saleList.add(null);
         }
     }
+    /** registrerar ett nytt sale som ska registreras i Accountsytem.
+     * 
+     * @param dto
+     * @return
+     */
     public boolean registerSale (SaleDTO dto)
     {
         if (saleList.get(dto.getSaleID()) !=null)
@@ -27,12 +33,16 @@ public class AccountSystem
         return false;
 
     }
+
+    // hämtar saleDTO
     public SaleDTO getSaleDTO (int saleID)
     {
         SaleDTO temp = saleList.get(saleID);
         return temp;
 
     } 
+
+    // tar mot lista för sedan returnera r till findSaldto.
     public SaleDTO findSaleDTO (Receipt rList)
     {
         int temp = rList.getSaleID();

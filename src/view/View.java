@@ -2,6 +2,8 @@ package view;
 
 import controller.Controller;
 
+/** klasen view kommer vara klassen som kör programmet genom hardcodedcontroll.
+ */
 public class View 
 {
     Controller contr;
@@ -24,6 +26,5 @@ public class View
         System.out.println("Add one more proteinshake");      // 3-4b
         contr.addItem(1);
         System.out.println("End Sale!");
-        System.out.println("Receipt /n");
     }
 }

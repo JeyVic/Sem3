@@ -1,5 +1,8 @@
 package model;
 
+/** Metod som samlar produktens variabler.
+ * 
+ */
 public class Item {
 
     int itemID;
@@ -8,6 +11,10 @@ public class Item {
     double VAT;
     String itemDetails;
 
+/** constructor
+ * 
+ * @param item
+ */
     public Item (Item item)
     {
         this.itemPrice = item.itemPrice;
@@ -17,6 +24,7 @@ public class Item {
         this.VAT = item.VAT;
     }
 
+    // skapar en "deep copy" läggs sedan till i köpet.
     public Item (int id, int quantity, double price, double vat, String iList) // iList = details
     {
         this.itemPrice = price;
@@ -25,10 +33,13 @@ public class Item {
         this.itemDetails = iList;
         this.VAT = vat;
     }
+
+    // hämtar rätt antal och returnerar det.
     public int getQuantity()
     {
         return quantity;
     }
+    // Gör Item till en läsbar string.
     public String toString()
     {
         String string = "";
