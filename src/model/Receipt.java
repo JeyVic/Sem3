@@ -4,6 +4,9 @@ import java.util.*;
 import data.SaleDTO;
 import data.StoreDTO;
 
+/** Receipt skapar kvittot med hjälp av info från dtos.
+ * 
+ */
 public class Receipt 
 {    
     private final double totalPrice;
@@ -12,6 +15,11 @@ public class Receipt
     private final int saleID;
     private final String storeLocation;
 
+    /** Constructor
+     * 
+     * @param dto
+     * @param store
+     */
     public Receipt (SaleDTO dto, StoreDTO store)
     {
         this.storeLocation = store.getStoreName() + " /n" + store.getLocation()+ "/n";
@@ -30,6 +38,8 @@ public class Receipt
     {
         return this.saleID;
     }
+
+    // Gör Receipt till en läsbar string.
     public String toString()
     {
         StringBuilder string = new StringBuilder();

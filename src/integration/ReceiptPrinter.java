@@ -1,5 +1,8 @@
 package integration;
 
+/** Här prints kvittot ut.
+ * 
+ */
 import model.Receipt;
 
 public class ReceiptPrinter {
