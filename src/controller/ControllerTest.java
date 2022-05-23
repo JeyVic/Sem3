@@ -1,6 +1,5 @@
 package controller;
 
-import java.beans.Transient;
 
 class ControllerTest 
 {
@@ -9,7 +8,7 @@ class ControllerTest
     void setUp()
     {
         contr = new Controller();
-        contr.startNewSale(1);
+        contr.newSale(1);
     }
 
     @AfterEach
@@ -22,11 +21,12 @@ class ControllerTest
     void endSale()
     {
         boolean r = false;
-        contr.endSale("test!");     // endSale tar mot String.
+        contr.endSale(27, "string", "test!");     // endSale tar mot String.
         if (contr.getString() == null)
         {
             r = true;
         }
-        assertTrue(r, "ControllerTest failed with endSale");
+        assert r == true; 
     }
+
 }

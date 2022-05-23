@@ -1,6 +1,6 @@
 package view;
 
-import model.RunningTotalRevenue;
+
 import model.Observer;
 
 /**

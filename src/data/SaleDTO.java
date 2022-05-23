@@ -12,7 +12,7 @@ public class SaleDTO
     private int saleID;
     private double totalVAT;
     private List <Item> itemList = new ArrayList <Item>();
-    private String cashier;
+    public String cashier;
     private String pos;
     
 
@@ -31,6 +31,7 @@ public class SaleDTO
         this.saleID = id;
         this.totalVAT = vat;
         this.pos = pos;
+        this.cashier = "";
     }
 
     /**
@@ -40,13 +41,8 @@ public class SaleDTO
     public SaleDTO copy()
     {
         SaleDTO temp = new SaleDTO(this.totalPrice, this.totalVAT, this.itemList, this.pos, this.saleID);
-        temp.cashier(this.cashier);
+        return temp;
 
-    }
-
-    public void (String Cashier) 
-    {
-        this.cashier = cashier;
     }
 
     /**
