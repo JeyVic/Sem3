@@ -7,16 +7,16 @@ public class ItemNotFound extends Exception
     public ItemNotFound (int id, String wrongID)
     {
         super(wrongID);
-        this.ID = id;
+        this.itemID = id;
     }
     public int barcodeFail ()
     {
-        return this.ID;
+        return this.itemID;
     }
     public String getMessage()
     {
         StringBuilder strB = new StringBuilder ();
-        strB.append("Item not found - exception"+ java.time.LocalDate.now() + java.timeLocalTime.now() + "/n");
+        strB.append("Item not found - exception"+ java.time.LocalDate.now() + java.time.LocalTime.now() + "/n");
         return strB.toString();
     }
 }

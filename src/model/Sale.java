@@ -13,7 +13,7 @@ public class Sale {
     private List<Item> itemList = new ArrayList<Item>();
     private double totalPrice;
     private int saleID;
-    private List<Observer> obserververList = new ArrayList<Observer>();
+    private List<Observer> observerList = new ArrayList<Observer>();
 
     /** Constructor Sale, 
      */
@@ -102,6 +102,11 @@ public class Sale {
         return active;
     }
 
+    public void terminateSale ()
+    {
+        System.out.println ("Sale terminated!");
+    }
+
     // toString metod som gör att det blir en läsbar string.
     public String toString()
     {
@@ -117,7 +122,7 @@ public class Sale {
     {
         for (Observer o : observerList)
         {
-            o.update(amount);
+            o.updateRevenue(amount);
         }
     }
     public void addOberserver (Observer observer)

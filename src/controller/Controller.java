@@ -57,22 +57,23 @@ public class Controller
 
     /** 
      *  Stänger Sale.
-     * @param paid vad för värde som betalas.
-     * @param sList  
-     * @param pList positionen på säljet
+     * @param paid double, vad för värde som betalas.
+     * @param sList string
+     * @param pList string, positionen på säljet
      * @return
      */
     public boolean endSale (double paid, String sList, String pList)
     {
-        SaleDTO dto = activeSale.endSale(sList, pList);
-        Receipt r = new Receipt (dto);
-        if(paid > dto.getTotal() + dto.getVAT() + " Change: /n");
+        SaleDTO saleDto = activeSale.endSale(pList);
+        StoreDTO storeDto = this.store;
+        Receipt r = new Receipt (saleDto, storeDto);
+        if(paid > saleDto.getTotal() + saleDto.getVAT())
         {
             rp.PrintReceipt(r);
-            as.registerSale(dto);
+            as.registerSale(saleDto);
             return true;
         }
-        return false;
+        else return false;
     }
 
     /**
@@ -81,7 +82,7 @@ public class Controller
     public void terminate ()
     {
         activeSale.terminateSale();
-    }
+    } 
     /**
      * 
      * @param itemID ID för varan.

@@ -25,6 +25,8 @@ public class View
         contr.addItem(3);
         System.out.println("Add one more proteinshake");      // 3-4b
         contr.addItem(1);
+        contr.endSale(100, "1", "5");
         System.out.println("End Sale!");
-    }
+        contr.terminate();
+   }
 }

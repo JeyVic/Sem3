@@ -3,16 +3,17 @@ package model;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class RunningTotalRevenue {
+public class RunningTotalRevenue 
+{
     String fileLoc = "";
     double amount;
+
     public RunningTotalRevenue()
     {
         amount = 0;
         fileLoc = "src/model/totalRevenue.txt";
     }
     
-    @Override
     public void updateRevenue (double amount)
     {
         this.amount += amount;
@@ -28,8 +29,6 @@ public class RunningTotalRevenue {
             e.printStackTrace();
         }
     }
-
-    @Override
     public String totalToString()
     {
         return "Obeserver:" + amount + "SEK";
