@@ -1,7 +1,12 @@
 package integration;
 
 import model.Item;
+
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.Scanner;
+import java.util.List;
 
 /** skapar en samlingsplats för alla items.
  * 
@@ -9,11 +14,24 @@ import java.util.*;
 
 public class InventorySystem 
 {
+    private static InventorySystem instance = null;
     private List<Item> cInventory = new ArrayList<>();
    
     // Constructorn
     public InventorySystem ()
     {
+        try
+        {
+            Scanner scan = new Scanner (new File ("src/integration/info.txt"));
+            String[] temp;
+            Item item;
+            int l = 0;
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println("No File Found!");
+            e.printStackTrace();
+        }    
 
     } 
     /** kollar current inventory.
@@ -44,7 +62,7 @@ public class InventorySystem
         if (cInventory.size() >= id) 
         {
             Item ie = cInventory.get(id);
-            if (ie.getQuantity() < 0)
+            if (ie.getQuantity() > 0)
             return true;
         }
         return false;
@@ -67,5 +85,14 @@ public class InventorySystem
     public void addItem (Item id)
     {
         cInventory.add(id);
+    }
+    public static InventorySystem getInstance() 
+    {
+        if (instance == null)
+        {
+            instance = new InventorySystem();
+        }
+        else System.out.println("The existing invetorysystem instance!");
+        return instance;
     }
 }
