@@ -14,6 +14,7 @@ public class RunningTotalRevenue
         fileLoc = "src/model/totalRevenue.txt";
     }
     
+ 
     public void updateRevenue (double amount)
     {
         this.amount += amount;
@@ -29,6 +30,7 @@ public class RunningTotalRevenue
             e.printStackTrace();
         }
     }
+    
     public String totalToString()
     {
         return "Obeserver:" + amount + "SEK";
