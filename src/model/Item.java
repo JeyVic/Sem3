@@ -25,12 +25,12 @@ public class Item {
     }
 
     // skapar en "deep copy" läggs sedan till i köpet.
-    public Item (int id, int quantity, double price, double vat, String iList) // iList = details
+    public Item (int q, double price, double vat, String details, int id) // iList = details
     {
         this.itemPrice = price;
-        this.quantity = quantity;
+        this.quantity = q;
         this.itemID = id;
-        this.itemDetails = iList;
+        this.itemDetails = details;
         this.VAT = vat;
     }
 

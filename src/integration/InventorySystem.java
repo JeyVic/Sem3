@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.*;
 import java.util.Scanner;
 import java.util.List;
+import java.lang.Exception;
 
 /** skapar en samlingsplats för alla items.
  * 
@@ -22,12 +23,19 @@ public class InventorySystem
     {
         try
         {
-            Scanner scan = new Scanner (new File ("src/integration/info.txt"));
+            Scanner scan = new Scanner (new File ("src/integration/info.txt").getAbsolutePath());
             String[] temp;
             Item item;
-            int l = 0;
+            int line = 0;
+            while (scan.nextLine() != null)
+            {
+                temp = scan.nextLine().split("-*-");
+                item = new Item(Integer.parseInt(temp[3]), Double.parseDouble(temp[0]), Double.parseDouble(temp[1]), temp[2], line);
+                cInventory.add(item);
+                line++;
+            }
         }
-        catch (FileNotFoundException e)
+        catch (SecurityException e)
         {
             System.out.println("No File Found!");
             e.printStackTrace();
