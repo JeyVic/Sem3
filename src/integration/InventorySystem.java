@@ -27,13 +27,23 @@ public class InventorySystem
             String[] temp;
             Item item;
             int line = 0;
-            while (scan.nextLine() != null)
+           /* while (scan.nextLine() != null)
             {
                 temp = scan.nextLine().split("-*-");
                 item = new Item(Integer.parseInt(temp[3]), Double.parseDouble(temp[0]), Double.parseDouble(temp[1]), temp[2], line);
                 cInventory.add(item);
                 line++;
-            }
+            } */
+            item = new Item(2, 50, 25, "Proteinbar", 1);
+            cInventory.add(item);
+            item = new Item(1, 20, 12, "Proteinshake", 2);
+            cInventory.add(item);
+            item = new Item(3, 50, 25, "Candybar", 3);
+            cInventory.add(item);
+            item = new Item(1, 15, 12, "Energydrink", 4);
+            cInventory.add(item);
+            item = new Item(1, 20, 12, "Proteinshake", 2);
+            cInventory.add(item);
         }
         catch (SecurityException e)
         {
@@ -102,5 +112,8 @@ public class InventorySystem
         }
         else System.out.println("The existing invetorysystem instance!");
         return instance;
+    }
+    public Item scan(int itemIdentifier) throws ItemNotFoundException {
+        throw new ItemNotFoundException (250, "Item can't be found!");
     }
 }
