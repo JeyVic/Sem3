@@ -1,10 +1,12 @@
 package integration;
 
-public class ItemNotFound extends Exception 
+import controller.Test;
+@Test
+public class ItemNotFoundException extends Exception 
 {
     private int itemID;
 
-    public ItemNotFound (int id, String wrongID)
+    public ItemNotFoundException (int id, String wrongID)
     {
         super(wrongID);
         this.itemID = id;
