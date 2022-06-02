@@ -113,7 +113,4 @@ public class InventorySystem
         else System.out.println("The existing invetorysystem instance!");
         return instance;
     }
-    public Item scan(int itemIdentifier) throws ItemNotFoundException {
-        throw new ItemNotFoundException (250, "Item can't be found!");
-    }
 }
