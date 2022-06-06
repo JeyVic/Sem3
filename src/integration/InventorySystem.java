@@ -18,7 +18,9 @@ public class InventorySystem
     private static InventorySystem instance = null;
     private List<Item> cInventory = new ArrayList<>();
    
-    // Constructorn
+    /** Constructor.
+     * 
+     */
     public InventorySystem ()
     {
         try
@@ -27,13 +29,7 @@ public class InventorySystem
             String[] temp;
             Item item;
             int line = 0;
-           /* while (scan.nextLine() != null)
-            {
-                temp = scan.nextLine().split("-*-");
-                item = new Item(Integer.parseInt(temp[3]), Double.parseDouble(temp[0]), Double.parseDouble(temp[1]), temp[2], line);
-                cInventory.add(item);
-                line++;
-            } */
+
             item = new Item(2, 50, 25, "Proteinbar", 1);
             cInventory.add(item);
             item = new Item(1, 20, 12, "Proteinshake", 2);
@@ -63,7 +59,9 @@ public class InventorySystem
 
     }
     
-    // Gör det till en läsbar string.
+    /** gör det till en läsbar string.
+     * 
+     */
     public String toString ()
     {
         String string = "";
@@ -74,7 +72,11 @@ public class InventorySystem
         return string;
     }
 
-    // kollar om det finns produkt med hjälp av produkt id.
+    /** kollar om det finns produkt med hjälp av endast ID.
+     * 
+     * @param id
+     * @return
+     */
     public boolean inStock (int id)
     {
         if (cInventory.size() >= id) 
@@ -87,7 +89,12 @@ public class InventorySystem
 
     }
 
-    // kollar om det är flera produkter som finns, med hjälp av id och kvantitet.
+    /** kollar om det är flera produkter som finns, med hjälp av id och kvantitet.
+     * 
+     * @param id
+     * @param quantity
+     * @return
+     */
     public boolean inStock (int id, int quantity)
     {
         if (cInventory.size() >= id) 
@@ -99,18 +106,25 @@ public class InventorySystem
         return false;
     }
 
-    // item id läggs till i currentInventory.
+    /** lägger till item id i cInvetory (currentInventory)
+     * 
+     * @param id
+     */
     public void addItem (Item id)
     {
         cInventory.add(id);
     }
+    /** skapar en samlingsplats för alla varor.
+     * 
+     * @return
+     */
     public static InventorySystem getInstance() 
     {
         if (instance == null)
         {
             instance = new InventorySystem();
         }
-        else System.out.println("The existing invetorysystem instance!");
+        else System.out.println("The existing inventorysystem instance!");
         return instance;
     }
 }

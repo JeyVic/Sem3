@@ -3,10 +3,11 @@ package model;
 import integration.InventorySystem;
 import integration.ItemNotFoundException;
 
-/** metoden Scan scannar en barcode och returnerar det som vilken vara det är.
- * 
+/** Metoden Scan scannar en barcode och returnerar det som vilken vara det är.
+ * Kommer även kasta exception ifall barcode inte finns (varan inte existerar!)
  */
-public class Scan {
+public class Scan 
+{
     static InventorySystem is;
     public static Item getItemFromBarcode (int barcode) throws ItemNotFoundException
     {

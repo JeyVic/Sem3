@@ -9,7 +9,9 @@ public class AccountSystem
 {
     List<SaleDTO> saleList;
 
-    // constructorn.
+    /** constructor.
+     * 
+     */
     public AccountSystem() 
     {
         saleList = new ArrayList<>();
@@ -34,7 +36,11 @@ public class AccountSystem
 
     }
 
-    // hämtar saleDTO
+    /** hämtar saleID.
+     * 
+     * @param saleID
+     * @return
+     */
     public SaleDTO getSaleDTO (int saleID)
     {
         SaleDTO temp = saleList.get(saleID);
@@ -42,7 +48,11 @@ public class AccountSystem
 
     } 
 
-    // tar mot lista för sedan returnera r till findSaldto.
+    /** tar mot lista för sedan returnera r till findSaldto.
+     * 
+     * @param rList
+     * @return
+     */
     public SaleDTO findSaleDTO (Receipt rList)
     {
         int temp = rList.getSaleID();

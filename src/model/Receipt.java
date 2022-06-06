@@ -39,7 +39,9 @@ public class Receipt
         return this.saleID;
     }
 
-    // Gör Receipt till en läsbar string.
+    /** Gör om det till en läsbar sträng.
+     * 
+     */
     public String toString()
     {
         StringBuilder string = new StringBuilder();
