@@ -24,7 +24,9 @@ public class Item {
         this.VAT = item.VAT;
     }
 
-    // skapar en "deep copy" läggs sedan till i köpet.
+    /** skapar en "deep copy" läggs sedan till i köpet.
+     * 
+     */
     public Item (int q, double price, double vat, String details, int id) // iList = details
     {
         this.itemPrice = price;
@@ -34,12 +36,18 @@ public class Item {
         this.VAT = vat;
     }
 
-    // hämtar rätt antal och returnerar det.
+    /** hämtar rätt kvantitet.
+     * 
+     * @return
+     */
     public int getQuantity()
     {
         return quantity;
     }
-    // Gör Item till en läsbar string.
+    
+    /** Gör det till en läsbar string.
+     * 
+     */
     public String toString()
     {
         String string = "";

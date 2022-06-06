@@ -2,7 +2,8 @@ package view;
 
 import controller.Controller;
 
-/** klasen view kommer vara klassen som kör programmet genom hardcodedcontroll.
+/** I view kommer vi printa ut och använda oss av hardcodedcontrollcalls.
+ * 
  */
 public class View 
 {

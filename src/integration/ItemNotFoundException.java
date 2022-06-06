@@ -1,6 +1,7 @@
 package integration;
 
 import controller.Test;
+
 @Test
 public class ItemNotFoundException extends Exception 
 {
@@ -11,7 +12,7 @@ public class ItemNotFoundException extends Exception
         super(wrongID);
         this.itemID = id;
     }
-    public int barcodeFail ()
+    public int barcodeFail()
     {
         return this.itemID;
     }

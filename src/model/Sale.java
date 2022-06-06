@@ -64,10 +64,10 @@ public class Sale {
     }
 /** Adderar produkterna till sale.
  * 
- * @param itemID
- * @param quantity
+ * @param itemID item id, alla items har ett id.
+ * @param quantity antal av det valda item.
  * @param is
- * @return itemID and is.
+ * @return returnerar boolean
  */
     public boolean addItems(int itemID, int quantity,InventorySystem is)
     {
@@ -81,7 +81,11 @@ public class Sale {
         }
     return right;
     }
-    // endsale skapar och sparar dto, baserat på det som sale.
+   /** har avslutat vi sale.
+    * 
+    * @param pos motager en string som heter pos.
+    * @return ett totalpris inc vat, ett sale id, en lista på alla items.
+    */
     public SaleDTO endSale(String pos)
     {
         double totalVAT = 0;
@@ -107,7 +111,9 @@ public class Sale {
         System.out.println ("Sale terminated!");
     }
 
-    // toString metod som gör att det blir en läsbar string.
+    /** funktion som det gör det till en läsbar string.
+     * 
+     */
     public String toString()
     {
         StringBuilder string = new StringBuilder();
@@ -117,7 +123,11 @@ public class Sale {
         }
         return string.toString();
     }
-
+    /** uppdaterar Observer.
+     * 
+     * @param amount
+     */
+    
     public void updateObserver (double amount)
     {
         for (Observer o : observerList)
@@ -125,6 +135,10 @@ public class Sale {
             o.updateRevenue(amount);
         }
     }
+    /** adderar en lista med Observer
+     * 
+     * @param observer
+     */
     public void addOberserver (Observer observer)
     {
         observerList.add(observer);

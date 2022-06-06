@@ -1,9 +1,15 @@
 package controller;
 
+import org.junit.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ControllerTest 
 {
     Controller contr;
+    String string;
+   
     @BeforeEach
     void setUp()
     {
@@ -14,19 +20,51 @@ class ControllerTest
     @AfterEach
     void tearDown()
     {
-            
+        contr = null;
+        string = null;        
     }
 
     @Test
-    void endSale()
+    void testNewSale()
+    {
+        contr.newSale(1);
+        contr.addItem(1);
+        boolean r = contr.endSale(100, "Test", "Test");
+        assertTrue(r, "ERROR! startNewSale controller failed!");
+    }
+    private void assertTrue(boolean result, String string2) {
+    }
+    @Test
+    void testAddItem() 
     {
         boolean r = false;
-        contr.endSale(27, "string", "test!");     // endSale tar mot String.
-        if (contr.getString() == null)
+        contr.addItem(0);
+        if (contr.getString().equals("1 Proteinbar\n")) {
+            r = true;
+        }
+        assertTrue(r, "ERROR! Controller testAddItem is failed!");
+
+    }
+    @Test
+    void testEndSale()
+    {
+        boolean r = false;
+        contr.endSale(35, "string", "test!");
+        if ((contr.getString() == null || contr.getString() == ""))
         {
             r = true;
         }
-        assert r == true; 
+        assertTrue (r, "ERROR! testEndSale failed!"); 
+    }
+
+    @Test
+    void testTerminate() {
+        boolean r = false;
+        contr.terminate();
+        if (contr.getString() == null) {
+            r = true;
+        }
+        assertTrue(r, "ERROR! testTerminate failed!");
     }
 
 }

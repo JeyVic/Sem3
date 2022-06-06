@@ -26,6 +26,10 @@ public class TotalRevenue implements Observer
         System.out.println(totalAmountString());
 
     }
+    /** return string whats paid.
+     * 
+     * @return
+     */
     public String totalAmountString() 
     {
         return "Observer: " + totalPaid + "SEK.";
